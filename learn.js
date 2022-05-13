@@ -44,6 +44,6 @@ img_file.addEventListener('change',function(){
     document.getElementById('imgs').setAttribute("src",img);
 
   }
-  reader.readAsDataURL(this.files[0]);
+ 
 
 })
