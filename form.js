@@ -32,8 +32,9 @@ const requireJsonContent = (request, response, next) => {
       next()
     }
   }
+app.use('/process-form',requireJsonContent)
 
-app.post('/process-form',requireJsonContent, function(req, res){
+app.post('/process-form', function(req, res){
     confirm=req.headers['content-type'];
     res.type('application/json')
       console.log('2',confirm)
@@ -57,18 +58,13 @@ app.listen(5500, function(req,res){
 })
 
 
-///hres the message from console
+///HERE 'S the message from console
 
 
-PS C:\Users\adeyt\Documents\programming\learn html,js,css> node form.js
-listening on 5500
-{ session_id: 'nom nom' }
-application/json
-form submitted
-application/x-www-form-urlencoded
 PS C:\Users\adeyt\Documents\programming\learn html,js,css> node form.js
 listening on 5500
 { session_id: 'nom nom' }
 2 application/json
 form submitted
 1 application/x-www-form-urlencoded
+
