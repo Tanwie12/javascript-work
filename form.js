@@ -25,8 +25,8 @@ function validatecookies(req,res,next) {
 
 }
 const requireJsonContent = (request, response, next) => {
-    console.log(request.headers['content-type']);
     if (request.headers['content-type'] !== 'application/json') {
+        console.log('1',request.headers['content-type'])
         response.status(400).send('Server requires application/json')
     } else {
       next()
@@ -36,7 +36,7 @@ const requireJsonContent = (request, response, next) => {
 app.post('/process-form',requireJsonContent, function(req, res){
     confirm=req.headers['content-type'];
     res.type('application/json')
-      console.log(confirm)
+      console.log('2',confirm)
       console.log("form submitted")
        res.redirect('/')
       
@@ -55,3 +55,20 @@ app.listen(5500, function(req,res){
     console.log('listening on 5500')
 
 })
+
+
+///hres the message from console
+
+
+PS C:\Users\adeyt\Documents\programming\learn html,js,css> node form.js
+listening on 5500
+{ session_id: 'nom nom' }
+application/json
+form submitted
+application/x-www-form-urlencoded
+PS C:\Users\adeyt\Documents\programming\learn html,js,css> node form.js
+listening on 5500
+{ session_id: 'nom nom' }
+2 application/json
+form submitted
+1 application/x-www-form-urlencoded
